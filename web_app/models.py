@@ -15,10 +15,10 @@ class Book(db.Model):
 class Tweet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tweet_text = db.Column(db.String(128))
-    user_id = db.Column(db.String(128))
+    user_name = db.Column(db.String(128))
 
 class User(db.Model):
-    user_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(128))
 
 def parse_records(database_records):
