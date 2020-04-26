@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAE's Twitoff App</title>
-</head>
-<body>
-    
-    <h1>Tweets Page</h1>
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "tweets" %}
+
+{% block content %}
+
+    <h1>Welcome to the Tweets Page</h1>
 
     <p>{{ message }}</p>
 
-    <ul>
-        {% for tweet in tweets %}
-            <li>{{  tweet["tweet_text"]  }}</li>
-        {% endfor %}
+    {% for tweet in tweets %}
+        <li>{{  tweet.tweet_text  }}</li>
+    {% endfor %}
     </ul>
-</body>
-</html>
+
+{% else %}
+    <p>Tweets not found.</p>
+{% endif %}
+
+{% endblock %}  

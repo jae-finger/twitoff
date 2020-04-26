@@ -5,10 +5,11 @@ from flask import Blueprint
 home_routes = Blueprint("home_routes", __name__)
 
 @home_routes.route("/")
-def index():
-    print('You found the page. GJ!')
-    return f"Hello World! -- I made this on 04/22/20"
+def hello_world():
+    print("YOU VISITED THE HOMEPAGE")
+    return "Hello, World!"
 
 @home_routes.route("/about")
 def about():
-    return "About me"
+    print("YOU VISITED THE ABOUT PAGE")
+    return "About Me (TODO)"
