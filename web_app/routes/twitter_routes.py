@@ -7,21 +7,14 @@ twitter_routes = Blueprint("twitter_routes", __name__)
 
 @twitter_routes.route("/tweets.json")
 def list_tweets():
-    tweets = [
-        {"id": 1, "tweet_text": "Tweet 1"},
-        {"id": 2, "tweet_text": "Tweet 2"},
-        {"id": 3, "tweet_text": "Tweet 3"},
-    ]
-    return jsonify(tweets)
+    tweet_list = Tweet.query.all()
+    tweets_response = parse_records(tweet_list)
+    return jsonify(tweets_response)
 
 @twitter_routes.route("/tweets")
 def list_tweets_for_humans():
-    tweets = [
-        {"id": 1, "tweet_text": "Tweet 1"},
-        {"id": 2, "tweet_text": "Tweet 2"},
-        {"id": 3, "tweet_text": "Tweet 3"},
-    ]
-    return render_template("tweets.html", message="Here are some tweets for ya'.", tweets=tweets)
+    tweets_list = Tweet.query.all()
+    return render_template("tweets.html", message="Here are some tweets for ya'.", tweets=tweets_list)
 
 @twitter_routes.route("/tweets/new")
 def new_tweet():
