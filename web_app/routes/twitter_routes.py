@@ -30,10 +30,6 @@ def create_tweet():
     db.session.add(new_tweet)
     db.session.commit()
 
-    return jsonify({
-        "message": "TWEET CREATED OK",
-        "tweet": dict(request.form)
-    })
-    #flash(f"Book '{new_book.title}' created successfully!", "success")
-    #return redirect(f"/books")
+    flash(f"New tweet by '{new_tweet.user_name}' created successfully!", "success")
+    return redirect(f"/tweets")
       
