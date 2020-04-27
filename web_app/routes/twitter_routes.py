@@ -30,6 +30,6 @@ def create_tweet():
     db.session.add(new_tweet)
     db.session.commit()
 
-    flash(f"New tweet by '{new_tweet.user_name}' created successfully!", "success")
+    flash(f"New tweet by '{new_tweet.user_name}' created successfully!", "dark")
     return redirect(f"/tweets")
       
