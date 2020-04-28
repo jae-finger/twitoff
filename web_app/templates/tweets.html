@@ -10,7 +10,7 @@
     <p>{{ message }}</p>
 
     {% for tweet in tweets %}
-        <li>Tweet #{{  tweet.id  }}: "{{  tweet.tweet_text  }}" -- {{ tweet.user_name  }} </li>
+        <li>Tweet: "{{  tweet.full_text  }}" -- User # {{  tweet.user_id  }} </li>
     {% endfor %}
     </ul>
 
