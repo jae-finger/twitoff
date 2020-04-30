@@ -31,7 +31,7 @@ def create_tweet():
     # db.session.add(new_tweet)
     # db.session.commit()
 
-    # flash(f"New tweet by '{new_tweet.user_name}' created successfully!", "dark")
+    # flash(f"New tweet by '{user_name}' created successfully!", "dark")
     return redirect(f"/users/{user_name}/fetch")
 
 @twitter_routes.route("/users/<screen_name>/fetch")
@@ -49,9 +49,10 @@ def fetch_user_data(screen_name):
     db_user.followers_count = user.followers_count
     db.session.add(db_user)
     db.session.commit()
+    
 
     # 3. Fetch their tweets
-    users_tweets = twitter_api.user_timeline(screen_name, tweet_mode="extended", count=35, exclude_replies=True, include_rts=False)
+    users_tweets = twitter_api.user_timeline(screen_name, tweet_mode="extended", count=200, exclude_replies=True, include_rts=False)
 
     # 4. Fetch embedding for tweet
     tweet_texts = [tweets.full_text for tweets in users_tweets]
@@ -70,4 +71,5 @@ def fetch_user_data(screen_name):
 
     db.session.commit()
 
-    return jsonify({"user": user._json, "num_tweets": len(users_tweets)})
+    # return jsonify({"user": user._json, "num_tweets": len(users_tweets)})
+    return redirect("/tweets")

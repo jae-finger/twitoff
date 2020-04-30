@@ -6,6 +6,8 @@ from web_app.models import db, migrate
 from web_app.routes.home_routes import home_routes
 from web_app.routes.book_routes import book_routes
 from web_app.routes.twitter_routes import twitter_routes
+from web_app.routes.admin_routes import admin_routes
+from web_app.routes.stats_routes import stats_routes
 
 DATABASE_URI = "sqlite://///Users/jonfinger/lambda/twitoff/twitoff_dev.db"
 SECRET_KEY = "super secret"
@@ -22,6 +24,8 @@ def create_app():
     app.register_blueprint(home_routes)
     app.register_blueprint(book_routes)
     app.register_blueprint(twitter_routes)
+    app.register_blueprint(admin_routes)
+    app.register_blueprint(stats_routes)
 
     return app
 

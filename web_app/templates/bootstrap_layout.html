@@ -28,10 +28,11 @@
     <!-- see: https://jinja.palletsprojects.com/en/2.11.x/tricks/ -->
     <!-- see: https://getbootstrap.com/docs/4.0/components/navbar/ -->
     {% set nav_links = [
+      ('/', 'prediction_form', 'Make a Prediction'),
       ('/books', 'books', 'Books'),
       ('/books/new', 'new_book', 'New Book'),
       ('/tweets', 'tweets', 'Tweets'),
-      ('/tweets/new', 'new_tweet', 'New Tweet')
+      ('/tweets/new', 'new_tweet', 'New Tweets and User')
     ] -%}
     {% set active_page = active_page|default('index') -%}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
